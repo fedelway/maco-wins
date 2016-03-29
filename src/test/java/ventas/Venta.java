@@ -7,6 +7,7 @@ public class Venta{
 	private double precioFinal;
 	private LocalDateTime fecha;
 	
+	/* setters */
 	public void setFecha(LocalDateTime f){
 		fecha = f;
 	}
@@ -21,5 +22,10 @@ public class Venta{
 	
 	public void setPrecioFinal(double precio){
 		precioFinal = precio;
+	}
+	
+	/* getters */
+	public LocalDateTime getFecha(){
+		return fecha;
 	}
 }

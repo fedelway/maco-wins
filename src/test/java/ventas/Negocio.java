@@ -32,9 +32,6 @@ public class Negocio {
 	public double gananciaDelDia(LocalDateTime dia){
 		Collection<Venta> ventasDelDia;
 		
-		for(Venta v : ventas){
-			if
-		}
-		
-		}
+		ventasDelDia = this.ventas.stream().filter(v -> (v.getFecha()).getYear() == dia.getYear() || (v.getFecha()).getDayOfYear() == dia.getDayOfYear() ).collect(Collectors.toCollection());
+	}
 }
