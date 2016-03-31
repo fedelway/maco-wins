@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Negocio {
 	private int valorFijo;
-	private Collection<Venta> ventas;
+	private List<Venta> ventas;
 	
 	public double precioFinal(Articulo articulo){
 		/*
-		 * Obtiene el precio final de un articulo de acuerdo al negocio
+		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
 		 */
 		if (articulo.esImportado()){
 			return ( this.valorFijo + articulo.getPrecio() ) * (articulo.getTasa() + 1);
@@ -30,8 +30,10 @@ public class Negocio {
 	}
 	
 	public double gananciaDelDia(LocalDateTime dia){
-		Collection<Venta> ventasDelDia;
-		
-		ventasDelDia = this.ventas.stream().filter(v -> (v.getFecha()).getYear() == dia.getYear() || (v.getFecha()).getDayOfYear() == dia.getDayOfYear() ).collect(Collectors.toCollection());
+	
+		return this.ventas.stream()
+				.filter(v -> v.mismoDia(dia) )
+				.mapToDouble(v -> v.getPrecioFinal())
+				.sum();
 	}
 }

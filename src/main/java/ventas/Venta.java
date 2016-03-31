@@ -7,6 +7,10 @@ public class Venta{
 	private double precioFinal;
 	private LocalDateTime fecha;
 	
+	public boolean mismoDia(LocalDateTime dia){
+		return ( fecha.getYear() == dia.getYear() && fecha.getDayOfYear() == dia.getDayOfYear());
+	}
+	
 	/* setters */
 	public void setFecha(LocalDateTime f){
 		fecha = f;
@@ -27,5 +31,9 @@ public class Venta{
 	/* getters */
 	public LocalDateTime getFecha(){
 		return fecha;
+	}
+	
+	public double getPrecioFinal(){
+		return precioFinal;
 	}
 }
