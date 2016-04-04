@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Negocio {
 	private int valorFijo;
-	private List<Venta> ventas;
+	private List<Venta> ventas = new ArrayList<>();
 	
 	public void vender(Articulo articulo, int cant){
 		/*
@@ -32,5 +32,9 @@ public class Negocio {
 	
 	public int getValorFijo(){
 		return valorFijo;
+	}
+
+	public List<Venta> getVentas() {
+		return ventas;
 	}
 }

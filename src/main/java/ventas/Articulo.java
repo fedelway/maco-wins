@@ -1,7 +1,7 @@
 package ventas;
 
 public class Articulo {	
-	static double tasaCotizacion = 0.3;
+	static double tasaCotizacion = (0.3);
 	
 	private int precioBase;
 	private boolean importado = false;
@@ -44,7 +44,7 @@ public class Articulo {
 		return precioBase;
 	}
 	
-	public double getTasa(){
+	public static double getTasa(){
 		return tasaCotizacion;
 	}
 }
