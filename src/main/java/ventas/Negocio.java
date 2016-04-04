@@ -6,17 +6,6 @@ public class Negocio {
 	private int valorFijo;
 	private List<Venta> ventas;
 	
-	public double precioFinal(Articulo articulo){
-		/*
-		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
-		 */
-		if (articulo.esImportado()){
-			return ( this.valorFijo + articulo.getPrecio() ) * (articulo.getTasa() + 1);
-		}
-		
-		return this.valorFijo + articulo.getPrecio();
-	}
-	
 	public void vender(Articulo articulo, int cant){
 		/*
 		 * crea el objeto venta, le asigna sus atributos y lo añade a la lista de ventas
@@ -25,7 +14,7 @@ public class Negocio {
 		venta.setArticulo(articulo);
 		venta.setCantidad(cant);
 		venta.setFecha(LocalDateTime.now());
-		venta.setPrecioFinal(this.precioFinal(articulo) );
+		venta.precioFinal(this);
 		ventas.add(venta);
 	}
 	
@@ -35,5 +24,13 @@ public class Negocio {
 				.filter(v -> v.mismoDia(dia) )
 				.mapToDouble(v -> v.getPrecioFinal())
 				.sum();
+	}
+
+	public void setValorFijo(int valorFijo) {
+		this.valorFijo = valorFijo;
+	}
+	
+	public int getValorFijo(){
+		return valorFijo;
 	}
 }
