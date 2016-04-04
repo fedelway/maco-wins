@@ -4,18 +4,7 @@ import java.util.*;
 
 public class Negocio {
 	private int valorFijo;
-	private Collection<Venta> ventas;
-	
-	public double precioFinal(Articulo articulo){
-		/*
-		 * Obtiene el precio final de un articulo de acuerdo al negocio
-		 */
-		if (articulo.esImportado()){
-			return ( this.valorFijo + articulo.getPrecio() ) * (articulo.getTasa() + 1);
-		}
-		
-		return this.valorFijo + articulo.getPrecio();
-	}
+	private List<Venta> ventas;
 	
 	public void vender(Articulo articulo, int cant){
 		/*
@@ -25,13 +14,23 @@ public class Negocio {
 		venta.setArticulo(articulo);
 		venta.setCantidad(cant);
 		venta.setFecha(LocalDateTime.now());
-		venta.setPrecioFinal(this.precioFinal(articulo) );
+		venta.precioFinal(this);
 		ventas.add(venta);
 	}
 	
 	public double gananciaDelDia(LocalDateTime dia){
-		Collection<Venta> ventasDelDia;
-		
-		ventasDelDia = this.ventas.stream().filter(v -> (v.getFecha()).getYear() == dia.getYear() || (v.getFecha()).getDayOfYear() == dia.getDayOfYear() ).collect(Collectors.toCollection());
+	
+		return this.ventas.stream()
+				.filter(v -> v.mismoDia(dia) )
+				.mapToDouble(v -> v.getPrecioFinal())
+				.sum();
+	}
+
+	public void setValorFijo(int valorFijo) {
+		this.valorFijo = valorFijo;
+	}
+	
+	public int getValorFijo(){
+		return valorFijo;
 	}
 }

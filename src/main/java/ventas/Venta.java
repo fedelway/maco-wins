@@ -6,6 +6,21 @@ public class Venta{
 	private int cantidad;
 	private double precioFinal;
 	private LocalDateTime fecha;
+
+	public double precioFinal(Negocio negocio){
+		/*
+		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
+		 */
+		if (articulo.esImportado()){
+			return ( negocio.getValorFijo() + articulo.getPrecio() ) * (articulo.getTasa() + 1) * cantidad;
+		}
+		
+		return (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad;
+	}
+	
+	public boolean mismoDia(LocalDateTime dia){
+		return ( fecha.getYear() == dia.getYear() && fecha.getDayOfYear() == dia.getDayOfYear());
+	}
 	
 	/* setters */
 	public void setFecha(LocalDateTime f){
@@ -20,12 +35,12 @@ public class Venta{
 		articulo = art;
 	}
 	
-	public void setPrecioFinal(double precio){
-		precioFinal = precio;
-	}
-	
 	/* getters */
 	public LocalDateTime getFecha(){
 		return fecha;
+	}
+	
+	public double getPrecioFinal(){
+		return precioFinal;
 	}
 }

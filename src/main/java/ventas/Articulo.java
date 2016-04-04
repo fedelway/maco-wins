@@ -4,7 +4,19 @@ public class Articulo {
 	static double tasaCotizacion = 0.3;
 	
 	private int precioBase;
-	private boolean importado;
+	private boolean importado = false;
+	
+	static public Articulo Pantalon(){
+		return new Articulo(250);
+	}
+	
+	static public Articulo Saco(){
+		return new Articulo(300);
+	}
+	
+	static public Articulo Camisa(){
+		return new Articulo(200);
+	}
 	
 	public Articulo(int precio){
 		this.setPrecio(precio);
@@ -13,18 +25,6 @@ public class Articulo {
 	public Articulo(int precio, boolean importado){
 		this.setPrecio(precio);
 		this.setImportado(importado);
-	}
-	
-	public Articulo Pantalon(){
-		return new Articulo(250);
-	}
-	
-	public Articulo Saco(){
-		return new Articulo(300);
-	}
-	
-	public Articulo Camisa(){
-		return new Articulo(200);
 	}
 	
 	public void setPrecio(int precio){
