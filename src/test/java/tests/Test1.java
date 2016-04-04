@@ -1,5 +1,7 @@
 package tests;
 
+import org.junit.*;
+
 import java.time.LocalDateTime;
 
 import ventas.*;
