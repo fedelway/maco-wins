@@ -7,15 +7,17 @@ public class Venta{
 	private double precioFinal;
 	private LocalDateTime fecha;
 
-	public double precioFinal(Negocio negocio){
+	public void precioFinal(Negocio negocio){
 		/*
 		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
 		 */
 		if (articulo.esImportado()){
-			return ( negocio.getValorFijo() + articulo.getPrecio() ) * (articulo.getTasa() + 1) * cantidad;
+			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + Articulo.getTasa()) * cantidad;
 		}
+		else {
 		
-		return (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad;
+		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad;
+		}
 	}
 	
 	public boolean mismoDia(LocalDateTime dia){

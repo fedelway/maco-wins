@@ -26,7 +26,7 @@ public class Test1 {
 		negocio.vender(pantalon, 1);
 		negocio.vender(saco, 1);
 		
-		Assert.assertEquals(negocio.gananciaDelDia(LocalDateTime.now()) , 1990.0d , 0);
+		Assert.assertEquals(negocio.gananciaDelDia(LocalDateTime.now()) , 1990.0d , 0.0);
 	}
 	
 }
