@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 import ventas.*;
 // import junit tests. Tengo errores con el maven. 
 //jvbjldbvjsdvbdjsvbsj
+//prueba igna
+
 public class Test1 {
 	
 	private Negocio negocio = new Negocio();
