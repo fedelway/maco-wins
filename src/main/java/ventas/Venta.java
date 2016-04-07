@@ -6,17 +6,20 @@ public class Venta{
 	private int cantidad;
 	private double precioFinal;
 	private LocalDateTime fecha;
+	private Negocio negocio;
 
-	public void precioFinal(Negocio negocio){
+	public void calcularPrecioFinal(){
 		/*
 		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
 		 */
 		if (articulo.esImportado()){
-			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + Articulo.getTasa()) * cantidad;
+			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + Articulo.getTasa()) * cantidad * articulo.getMarca().getCoeficiente()
+			+ articulo.getMarca().politicaDeMarca(this);
 		}
 		else {
 		
-		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad;
+		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad * articulo.getMarca().getCoeficiente() 
+			+ articulo.getMarca().politicaDeMarca(this);
 		}
 	}
 	
@@ -35,6 +38,10 @@ public class Venta{
 	
 	public void setArticulo (Articulo art){
 		articulo = art;
+	}
+	
+	public void setNegocio(Negocio neg){
+		negocio = neg;
 	}
 	
 	/* getters */

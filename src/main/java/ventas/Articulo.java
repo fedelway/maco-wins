@@ -5,6 +5,7 @@ public class Articulo {
 	
 	private int precioBase;
 	private boolean importado = false;
+	private Marca marca;
 	
 	static public Articulo Pantalon(){
 		return new Articulo(250);
@@ -46,5 +47,9 @@ public class Articulo {
 	
 	public static double getTasa(){
 		return tasaCotizacion;
+	}
+	
+	public Marca getMarca(){
+		return marca;
 	}
 }

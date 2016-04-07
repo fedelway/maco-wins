@@ -14,7 +14,8 @@ public class Negocio {
 		venta.setArticulo(articulo);
 		venta.setCantidad(cant);
 		venta.setFecha(LocalDateTime.now());
-		venta.precioFinal(this);
+		venta.setNegocio(this);
+		venta.calcularPrecioFinal();
 		ventas.add(venta);
 	}
 	
