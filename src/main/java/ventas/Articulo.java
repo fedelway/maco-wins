@@ -1,19 +1,12 @@
 package ventas;
 
+//Se mantiene esta clase para manejar casos base, como la camisa.
 public class Articulo {	
 	static double tasaCotizacion = (0.3);
 	
-	private int precioBase;
-	private boolean importado = false;
-	private Marca marca;
-	
-	static public Articulo Pantalon(){
-		return new Articulo(250);
-	}
-	
-	static public Articulo Saco(){
-		return new Articulo(300);
-	}
+	protected int precioBase;
+	protected boolean importado = false;
+	protected Marca marca;
 	
 	static public Articulo Camisa(){
 		return new Articulo(200);
@@ -22,6 +15,8 @@ public class Articulo {
 	public Articulo(int precio){
 		this.setPrecio(precio);
 	}
+	
+	public Articulo(){}
 	
 	public Articulo(int precio, boolean importado){
 		this.setPrecio(precio);
@@ -41,7 +36,8 @@ public class Articulo {
 		return importado;
 	}
 	
-	public int getPrecio(){
+	//Retorna double porque en algunas subclases retorna double
+	public double getPrecio(){
 		return precioBase;
 	}
 	

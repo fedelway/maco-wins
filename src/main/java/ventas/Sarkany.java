@@ -5,12 +5,12 @@ public class Sarkany implements Marca {
 	private double coeficiente;
 	
 	@Override
-	public double politicaDeMarca(Venta venta) {
+	public double politicaDeMarca(Articulo art) {
 		
-		if(venta.getPrecioFinal() > 500){
-			return venta.getPrecioFinal() * 0.35d;
+		if(art.getPrecio() > 500){
+			return art.getPrecio() * 0.35d;
 		}else
-			return venta.getPrecioFinal() * 0.1d;
+			return art.getPrecio() * 0.1d;
 	}
 
 	@Override

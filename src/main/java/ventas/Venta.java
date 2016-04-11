@@ -14,12 +14,12 @@ public class Venta{
 		 */
 		if (articulo.esImportado()){
 			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + Articulo.getTasa()) * cantidad * articulo.getMarca().getCoeficiente()
-			+ articulo.getMarca().politicaDeMarca(this);
+			+ articulo.getMarca().politicaDeMarca(articulo);
 		}
 		else {
 		
 		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad * articulo.getMarca().getCoeficiente() 
-			+ articulo.getMarca().politicaDeMarca(this);
+			+ articulo.getMarca().politicaDeMarca(articulo);
 		}
 	}
 	
