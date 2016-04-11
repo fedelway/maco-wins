@@ -4,13 +4,13 @@ public class Armani implements Marca {
 
 	private double coeficiente;
 	
-	public Armani(){
-		coeficiente = 0.65d;
+	public Armani(double coef){
+		coeficiente = coef;
 	}
-	
+
 	@Override
 	public double politicaDeMarca(Articulo art) {
-		return 0.65d;
+		return art.getPrecio() * 0.65d;
 	}
 	
 	@Override
