@@ -4,9 +4,6 @@ public class Sarkany implements Marca {
 
 	private double coeficiente;
 	
-	public Sarkany(double coef){
-		coeficiente = coef;
-	}
 	
 	@Override
 	public double politicaDeMarca(Articulo art) {

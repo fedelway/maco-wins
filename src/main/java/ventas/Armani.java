@@ -4,8 +4,8 @@ public class Armani implements Marca {
 
 	private double coeficiente;
 	
-	public Armani(double coef){
-		coeficiente = coef;
+	public Armani(){
+		coeficiente = 0.65d;
 	}
 	
 	@Override
