@@ -13,4 +13,5 @@ public class Pantalon extends Articulo {
 	public double getPrecio(){
 		return precioBase + cm2;
 	}
+
 }

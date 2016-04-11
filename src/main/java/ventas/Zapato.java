@@ -13,4 +13,7 @@ public class Zapato extends Articulo {
 	public double getPrecio(){
 		return precioBase + talle * 5;
 	}
+
+	
 }
+

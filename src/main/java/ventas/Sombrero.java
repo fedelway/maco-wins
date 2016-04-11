@@ -13,5 +13,6 @@ public class Sombrero extends Articulo {
 	public double getPrecio(){
 		return precioBase * (1 + metrosexualidad);
 	}
+
 	
 }

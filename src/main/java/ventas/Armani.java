@@ -6,7 +6,7 @@ public class Armani implements Marca {
 	
 	@Override
 	public double politicaDeMarca(Articulo art) {
-		return art.getPrecio() * 0.65d;
+		return 0.65d;
 	}
 	
 	@Override

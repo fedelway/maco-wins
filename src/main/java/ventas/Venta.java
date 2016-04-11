@@ -12,14 +12,12 @@ public class Venta{
 		/*
 		 * Obtiene el precio final de un articulo de acuerdo al negocio y a si es o no importado
 		 */
-		if (articulo.esImportado()){
-			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + Articulo.getTasa()) * cantidad * articulo.getMarca().getCoeficiente()
-			+ articulo.getMarca().politicaDeMarca(articulo);
+		if (articulo.getImportado()){
+			precioFinal = ( negocio.getValorFijo() + articulo.getPrecio() ) * (1 + articulo.getTasa()) * cantidad * (1 + articulo.getMarca().politicaDeMarca(articulo));
 		}
 		else {
 		
-		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad * articulo.getMarca().getCoeficiente() 
-			+ articulo.getMarca().politicaDeMarca(articulo);
+		precioFinal = (negocio.getValorFijo() + articulo.getPrecio() ) * cantidad * (1 + articulo.getMarca().politicaDeMarca(articulo));
 		}
 	}
 	
