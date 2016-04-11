@@ -2,7 +2,11 @@ package ventas;
 
 public class Armani implements Marca {
 
-	private double coeficiente = .65d;
+	private double coeficiente;
+	
+	public Armani(double coef){
+		coeficiente = coef;
+	}
 	
 	@Override
 	public double politicaDeMarca(Articulo art) {
